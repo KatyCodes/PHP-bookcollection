@@ -20,6 +20,10 @@
         return $app['twig']->render('index.html.twig', array('books' =>  Book::getAll()));
     });
 
+    $app->post("/search", function() use ($app){
+        return $app['twig']->render('search.html.twig', array('results' =>  Book::find($_POST['search']), 'search_title' => $_POST['search']));
+    });
+
     $app->post("/add", function() use ($app){
         $book = new Book($id = 1, $_POST['title'], $_POST['author']);
         $book->save();

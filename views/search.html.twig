@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Your Book Collection</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Bookellect</h1>
+            <h2>Your go-to book collection resource</h2>
+
+            {% if results is not empty %}
+                <h4> {{ results.getTitle }} </h4>
+
+            {% else %}
+                <h4> You do not have {{ search_title }} in your collection! Buy it <a href="#">here.</a></h4>
+            {% endif %}
+
+        </div>
+    </body>
+</html>

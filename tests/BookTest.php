@@ -79,6 +79,22 @@
             //Assert
             $this->assertEquals($test_Book, $result[0]);
         }
+
+        function test_findbook()
+        {
+            //Arrange
+             $id = 1;
+             $title = "Great Gatsby";
+             $author = "Fitz";
+             $test_Book = new Book($id, $title, $author);
+             $test_Book->save();
+
+            //Act
+            $result = Book::find($test_Book->getTitle());
+
+            //Assert
+            $this->assertEquals($test_Book, $result);
+        }
     }
 
 ?>

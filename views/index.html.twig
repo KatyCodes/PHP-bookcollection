@@ -26,6 +26,12 @@
                 </ol>
             {% endif %}
 
+            <form action="/search" method="post">
+                <h3>Search</h3>
+                <input id="search" name="search" class="form-control" type="text" placeholder="Search by book title">
+                <button type="submit" class="btn btn-danger">Search!</button>
+            </form>
+
         </div>
     </body>
 </html>

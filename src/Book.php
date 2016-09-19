@@ -55,6 +55,19 @@
             $GLOBALS['DB']->exec("INSERT INTO books (title, author) VALUES ('{$this->getTitle()}', '{$this->getAuthor()}')");
             $this->id = $GLOBALS['DB']->lastInsertID();
         }
+
+        static function find($search_title)
+        {
+            $found_book = "";
+            $books = Book::getAll();
+            foreach($books as $book) {
+                $book_title= $book->getTitle();
+                if (strtolower($book_title) == strtolower($search_title)) {
+                $found_book = $book;
+            }
+        }
+        return $found_book;
+        }
     }
 
 ?>
