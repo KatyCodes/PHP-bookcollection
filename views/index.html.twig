@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Your Book Collection</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Bookellect</h1>
+            <h2>Your go-to book collection resource</h2>
+            <form class="" action="/add" method="post">
+                <h4>Enter your books one by one</h4>
+                <input id="title" name="title" class="form-control" type="text" placeholder="Title">
+                <input id = "author" type="text" name="author" placeholder="Author">
+                <button type="submit" name="button">Add</button>
+            </form>
+            <form action="/delete" method="post">
+                <button type="submit" class="btn btn-danger">Delete All</button>
+            </form>
+
+            {% if books is not empty %}
+                <ol>
+                {% for book in books %}
+                    <li>{{book.getTitle}}, by {{book.getAuthor}}</li>
+                {% endfor %}
+                </ol>
+            {% endif %}
+
+        </div>
+    </body>
+</html>
