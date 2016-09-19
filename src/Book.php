@@ -62,7 +62,8 @@
             $books = Book::getAll();
             foreach($books as $book) {
                 $book_title= $book->getTitle();
-                if (strtolower($book_title) == strtolower($search_title)) {
+                $book_author= $book->getAuthor();
+                if (strtolower($book_title) || strtolower($book_author) == strtolower($search_title)) {
                 $found_book = $book;
             }
         }
