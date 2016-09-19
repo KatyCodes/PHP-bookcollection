@@ -10,14 +10,14 @@
     <body>
         <div class="container">
             <h1>Bookellect</h1>
-            <h2>Your go-to book collection resource</h2>
+            <h2 class="space">Your go-to book collection resource</h2>
             <div class="row">
                 <div class="col-sm-4">
                     <h3>Add a book!</h3>
                     <form class="" action="/add" method="post">
-                        <input id="title" name="title" class="form-control" type="text" placeholder="Title">
+                        <input required id="title" name="title" class="form-control" type="text" placeholder="Title">
                         <br>
-                        <input id = "author" type="text" class="form-control" name="author" placeholder="Author">
+                        <input required id = "author" type="text" class="form-control" name="author" placeholder="Author">
                         <button type="submit" class="btn center-block" name="button">Add</button>
                     </form>
                 </div>
@@ -29,15 +29,17 @@
                             <li>{{book.getTitle}}, by {{book.getAuthor}}</li>
                         {% endfor %}
                         </ol>
+                        <form action="/delete" method="post">
+                            <button type="submit" class="btn center-block">Delete All</button>
+                        </form>
+                    {% else %}
+                        <h5>No books in your collection</h5>
                     {% endif %}
-                    <form action="/delete" method="post">
-                        <button type="submit" class="btn center-block">Delete All</button>
-                    </form>
                 </div>
                 <div class="col-sm-4">
                     <form action="/search" method="post">
                         <h3>Search</h3>
-                        <input id="search" name="search" class="form-control" type="text" placeholder="Search by book title or author">
+                        <input required id="search" name="search" class="form-control" type="text" placeholder="Search by book title or author">
                         <button type="submit" class="btn center-block">Search!</button>
                     </form>
                 </div>

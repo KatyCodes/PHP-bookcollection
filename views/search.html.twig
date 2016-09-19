@@ -10,15 +10,15 @@
     <body>
         <div class="container">
             <h1>Bookellect</h1>
-            <h2>Your go-to book collection resource</h2>
 
             {% if results is not empty %}
+                <h3>Search Results: </h3>
                 <h4> {{ results.getTitle }}, by {{ results.getAuthor }}</h4>
 
             {% else %}
                 <h4> You do not have {{ search_title }} in your collection! Buy it <a href="#">here.</a></h4>
             {% endif %}
-
+            <a href="/">Go home</a>
         </div>
     </body>
 </html>
